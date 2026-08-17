@@ -4,6 +4,19 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        return len(nums)!=len(set(nums))
+        n=len(nums)
+        nums1=sorted(nums)
+        i=0
+        for i in range(n-1):
+            if nums1[i]==nums1[i+1]:
+                return True
+        return False
+
+
+
+
+        
+            
+
         
 
