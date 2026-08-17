@@ -10,4 +10,3 @@ class Solution(object):
             for i in range(j+1,n):
                 if nums[i]+nums[j]==target:
                     return [j,i]
-        
