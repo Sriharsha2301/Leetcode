@@ -5,9 +5,9 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        seen={}
-        for i,num in enumerate(nums):
-            complement=target-num
-            if complement in seen:
-                return [seen[complement],i]
-            seen[num]=i
+        n=len(nums)
+        for j in range(n):
+            for i in range(j+1,n):
+                if nums[i]+nums[j]==target:
+                    return [j,i]
+        
