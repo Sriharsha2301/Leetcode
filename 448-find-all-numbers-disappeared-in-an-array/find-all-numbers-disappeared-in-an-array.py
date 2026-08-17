@@ -4,6 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        n=set(nums)
-        return [i for i in range(1,len(nums)+1) if i not in n]
+        s=set(nums)
+        n=len(nums)
+        return [i for i in range(1,n+1) if i not in s]
+
        
