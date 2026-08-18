@@ -5,9 +5,9 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        n1=sorted(s)
-        n2=sorted(t)
-        return n1==n2
+        # n1=sorted(s)
+        # n2=sorted(t)
+        return sorted(s)==sorted(t)
 
         
         
