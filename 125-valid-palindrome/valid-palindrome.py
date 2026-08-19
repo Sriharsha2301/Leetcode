@@ -4,12 +4,12 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
+        s=s.lower()
         l=""
         for c in s:
             if c.isalnum():
                 l+=c
-        l=l.lower()
-           
+       
         return (l==l[::-1])
 
         
