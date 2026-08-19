@@ -19,7 +19,7 @@ class Solution(object):
             else:
                 if r:
                     r.pop()
-        return ("".join(l)=="".join(r))
+        return (l==r)
         
 
         
