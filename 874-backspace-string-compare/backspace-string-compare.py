@@ -5,21 +5,21 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        l=[]
-        r=[]
+        l,r=[],[]
         for i in s:
-            if  i!="#":
+            if i!="#":
                 l.append(i)
             else:
                 if l:
                     l.pop()
+        
         for j in t:
-            if  j!="#":
+            if j!="#":
                 r.append(j)
             else:
                 if r:
                     r.pop()
-        return (l==r)
         
+        return (l==r)
 
         
