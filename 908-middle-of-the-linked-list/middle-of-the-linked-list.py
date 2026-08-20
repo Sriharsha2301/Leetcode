@@ -9,8 +9,9 @@ class Solution(object):
         :type head: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
+        
         if head is None:
-            return 0
+            return None
 
 
         fast=head
