@@ -10,19 +10,13 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: int
         """
-      
         if root is None:
             return 0
         left=self.minDepth(root.left)
         right=self.minDepth(root.right)
-        # if left==0:
-        #     return 1+right
-        # if right==0:
-        #     return 1+left
         if root.left is None:
             return 1+right
         elif root.right is None:
             return 1+left
         else:
             return 1+min(left,right)
-        
