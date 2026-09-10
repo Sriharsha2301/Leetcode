@@ -5,22 +5,48 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
+    def inorderHelper(self,node,out):
+        if not node:
+            return
+        
+        self.inorderHelper(node.left,out)
+        out.append(node.val)
+        self.inorderHelper(node.right,out)
     def inorderTraversal(self, root):
         """
         :type root: Optional[TreeNode]
         :rtype: List[int]
         """
+        out=[]
         if not root:
-            return []
-        stack=[]
-        curr=root
-        output=[]
-        while stack or curr:
-            while curr:
-                stack.append(curr)
-                curr=curr.left
-            curr=stack.pop()
-            output.append(curr.val)
-            curr=curr.right
-        return output
+            return out
+        
+        self.inorderHelper(root,out)
+
+        return out
+
+
+
+
+
+
+
+
+
+
+
+
+        # if not root:
+        #     return []
+        # stack=[]
+        # curr=root
+        # output=[]
+        # while stack or curr:
+        #     while curr:
+        #         stack.append(curr)
+        #         curr=curr.left
+        #     curr=stack.pop()
+        #     output.append(curr.val)
+        #     curr=curr.right
+        # return output
         
