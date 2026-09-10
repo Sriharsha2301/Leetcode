@@ -20,8 +20,8 @@ class Solution(object):
         if not root:
             return 0
 
-        result=self.recurmaxDepth(root,depth)
+        return self.recurmaxDepth(root,depth)
 
-        return result
+        
 
         
