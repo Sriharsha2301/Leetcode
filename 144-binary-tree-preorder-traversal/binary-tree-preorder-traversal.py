@@ -25,6 +25,8 @@ class Solution(object):
         self.preorderHelper(root,out)
 
         return out
+
+        #using DFS->STACK
         # if not root:
         #     return []
         # stack=[root]
