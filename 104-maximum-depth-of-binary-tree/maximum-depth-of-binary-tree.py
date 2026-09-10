@@ -9,10 +9,7 @@ class Solution(object):
         if not node:
             return depth
 
-        left=self.recurmaxDepth(node.left,depth+1)
-        right=self.recurmaxDepth(node.right,depth+1)
-
-        return max(left,right)
+        return max(self.recurmaxDepth(node.left,depth+1),self.recurmaxDepth(node.right,depth+1))
         
     def maxDepth(self, root):
         """
