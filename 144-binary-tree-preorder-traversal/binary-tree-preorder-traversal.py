@@ -5,25 +5,38 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
+    def preorderHelper(self,node,out):
+        if not node:
+            return out
+        out.append(node.val)
+        self.preorderHelper(node.left,out)
+        self.preorderHelper(node.right,out)
+
+
     def preorderTraversal(self, root):
         """
         :type root: Optional[TreeNode]
         :rtype: List[int]
         """
-
+        out=[]
         if not root:
-            return []
-        stack=[root]
-        output=[]
-        while stack:
-          
-                node=stack.pop()
-                output.append(node.val)
-                if node.right:
-                    stack.append(node.right)
-                if node.left:
-                    stack.append(node.left)
-        return output
+            return out
+
+        self.preorderHelper(root,out)
+
+        return out
+        # if not root:
+        #     return []
+        # stack=[root]
+        # output=[]
+        # while stack:
+        #         node=stack.pop()
+        #         output.append(node.val)
+        #         if node.right:
+        #             stack.append(node.right)
+        #         if node.left:
+        #             stack.append(node.left)
+        # return output
        
 
 
