@@ -5,24 +5,22 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def recurmaxDepth(self,node):
+    def recurmaxDepth(self,node,depth):
         if not node:
-            return 0
-        left=self.recurmaxDepth(node.left)
-        right=self.recurmaxDepth(node.right)
-        return 1+max(left,right)
+            return depth
+
+        return max(self.recurmaxDepth(node.left,depth+1),self.recurmaxDepth(node.right,depth+1))
         
     def maxDepth(self, root):
         """
         :type root: Optional[TreeNode]
         :rtype: int
         """
-       
+        depth=0
         if not root:
             return 0
 
-        result=self.recurmaxDepth(root)
-        return result
+        return self.recurmaxDepth(root,depth)
 
         
 
