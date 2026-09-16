@@ -6,10 +6,9 @@
 #         self.right = right
 class Solution(object):
     def pathSum(self,node,targetSum,sum):
-        
         if not node:
             return False
-
+        
         sum=sum+node.val
 
         if node.left is None and node.right is None:
@@ -18,9 +17,7 @@ class Solution(object):
             return False
         
         return (self.pathSum(node.left,targetSum,sum) or self.pathSum(node.right,targetSum,sum))
-        
-
-
+    
     def hasPathSum(self, root, targetSum):
         """
         :type root: Optional[TreeNode]
