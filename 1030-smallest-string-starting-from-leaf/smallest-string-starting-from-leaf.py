@@ -1,4 +1,3 @@
-import string
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
@@ -9,24 +8,19 @@ class Solution(object):
     def leafToRoot(self,node,st):
         if not node:
             return ""
-
-        conversion=chr(ord("a")+node.val)
-        st=conversion+st
-        
+        current=str(chr(ord('a')+node.val))
+        st=current+st
+        left=self.leafToRoot(node.left,st)
+        right=self.leafToRoot(node.right,st)
         if node.left is None and node.right is None:
             return st
-            
-        left=self.leafToRoot(node.left,st)
-        right= self.leafToRoot(node.right,st)
-
+        if not left:
+            return right
         if not right:
             return left
 
-        if not left:
-            return right
-         
         return min(left,right)
-
+    
     def smallestFromLeaf(self, root):
         """
         :type root: Optional[TreeNode]
@@ -34,6 +28,5 @@ class Solution(object):
         """
         if not root:
             return ""
-        
+
         return self.leafToRoot(root,"")
-        
