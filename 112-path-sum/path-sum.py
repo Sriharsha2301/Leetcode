@@ -5,17 +5,6 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def rootToLeaf(self,node,targetSum,sum):
-        if not node:
-            return False
-        sum+=node.val
-        if node.left is None and node.right is None:
-            if targetSum==sum:
-                return True
-            return False
-
-        return (self.rootToLeaf(node.left,targetSum,sum) or self.rootToLeaf(node.right,targetSum,sum))
-
     def hasPathSum(self, root, targetSum):
         """
         :type root: Optional[TreeNode]
@@ -24,4 +13,22 @@ class Solution(object):
         """
         if not root:
             return False
-        return self.rootToLeaf(root,targetSum,0)
+        stack=[(root,0)]
+
+        while stack:
+            p=stack.pop()
+            node=p[0]
+            val=p[1]
+
+            val+=node.val
+            if node.left is None and node.right is None:
+                if targetSum==val:
+                    return True
+                # continue
+            if node.right:
+                stack.append((node.right,val))
+            if node.left:
+                stack.append((node.left,val))
+        return False
+            
+        
