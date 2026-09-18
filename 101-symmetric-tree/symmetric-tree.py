@@ -5,28 +5,6 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def isSymmetricHelper(self,node1,node2):
-        if node1 is None and node2 is None:
-            return True
-
-        if node1 is None or node2 is None:
-            return False
-        
-        if node1.val!=node2.val:
-            return False
-        
-        # result1=self.isSymmetricHelper(node1.left,node2.right)
-
-        # if not result1:
-        #     return False
-            
-        # result2=
-
-        # if not result2:
-        #     return False
-        # return True
-        return (self.isSymmetricHelper(node1.right,node2.left)) and(self.isSymmetricHelper(node1.left,node2.right))
-        
     def isSymmetric(self, root):
         """
         :type root: Optional[TreeNode]
@@ -34,6 +12,34 @@ class Solution(object):
         """
         if not root:
             return False
-        result=self.isSymmetricHelper(root,root)
-        return result
+        queue=[root]
+        queue.append(root)
+
+        while queue:
+            node1=queue.pop()
+            node2=queue.pop()
+        
+            if node1 is None and node2 is None:
+                continue
+            
+            if node1 is None or node2 is None:
+                return False
+
+            if node1.val!=node2.val:
+                return False
+        
+            queue.append(node1.left)
+            queue.append(node2.right)
+
+            queue.append(node1.right)
+            queue.append(node2.left)
+        return True
+        
+
+
+
+
+
+      
+
         
