@@ -15,17 +15,17 @@ class Solution(object):
         if node1.val!=node2.val:
             return False
         
-        result1=self.isSymmetricHelper(node1.left,node2.right)
+        # result1=self.isSymmetricHelper(node1.left,node2.right)
 
-        if not result1:
-            return False
+        # if not result1:
+        #     return False
             
-        result2=self.isSymmetricHelper(node1.right,node2.left)
+        # result2=
 
-        if not result2:
-            return False
-        return True
-        
+        # if not result2:
+        #     return False
+        # return True
+        return (self.isSymmetricHelper(node1.right,node2.left)) and(self.isSymmetricHelper(node1.left,node2.right))
         
     def isSymmetric(self, root):
         """
