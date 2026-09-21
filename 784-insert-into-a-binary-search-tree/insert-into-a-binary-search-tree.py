@@ -5,32 +5,33 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
+    def insertIntoHelper(self,node,val):
+        if val<node.val:
+            if not node.left:
+                node.left=TreeNode(val)
+                return
+            else:
+                self.insertIntoBST(node.left,val)
+        else:
+            if not node.right:
+                node.right=TreeNode(val)
+                return 
+            else:
+                self.insertIntoBST(node.right,val)
     def insertIntoBST(self, root, val):
         """
         :type root: Optional[TreeNode]
         :type val: int
         :rtype: Optional[TreeNode]
         """
-        node=TreeNode(val)
-
         if not root:
-            return node
-        
-        prev=TreeNode(root)
-        curr=root
+            return TreeNode(val)
 
-        while curr:
-            if val<curr.val:
-                prev=curr
-                curr=curr.left
-                if not curr:
-                    prev.left=node
-                    return root
-            else:
-                prev=curr
-                curr=curr.right
-                if not curr:
-                    prev.right=node
-                    return root
+        self.insertIntoHelper(root,val)
         return root
+       
+
+
+            
+
         
