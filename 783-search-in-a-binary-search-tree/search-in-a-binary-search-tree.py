@@ -13,12 +13,14 @@ class Solution(object):
         """
         if not root:
             return 
-        if root.val==val:
-            return root
-        elif val<root.val:
-            return self.searchBST(root.left,val)
-        else:
-            return self.searchBST(root.right,val)
+        curr=root
+        while curr:
+            if curr.val==val:
+                return curr
+            elif val<curr.val:
+                curr=curr.left
+            else:
+                curr=curr.right
+        return None
         
-
         
