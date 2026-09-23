@@ -5,20 +5,30 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def isItValid(self,node,lower,upper):
+    
+    # //inorder Traversal
+    def isItValid(self,node):
         if not node:
             return True
-        if upper is not None and node.val>=upper or lower is not None and node.val<=lower:
-            return False
         
-        left=self.isItValid(node.left,lower,node.val)
-        right=self.isItValid(node.right,node.val,upper)
+        left=self.isItValid(node.left)
 
-        return left and right
+        if not left: 
+            return False 
+
+        if self.last is not None and node.val<=self.last:
+            return False
+        self.last=node.val
+        
+        right=self.isItValid(node.right)
+        return right
+        
     def isValidBST(self, root):
         """
         :type root: Optional[TreeNode]
         :rtype: bool
         """
-        return self.isItValid(root,float('-inf'),float('inf'))
+        self.last=None
+      
+        return self.isItValid(root)
         
