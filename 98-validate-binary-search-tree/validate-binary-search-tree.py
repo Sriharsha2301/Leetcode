@@ -8,16 +8,15 @@ class Solution(object):
     def isItValid(self,node,lower,upper):
         if not node:
             return True
-        if (upper is not None and node.val>=upper) or (lower is not None and node.val<=lower):
+        if  (upper is not None and node.val>=upper) or (lower is not None and node.val<=lower):
             return False
-
+        
         left=self.isItValid(node.left,lower,node.val)
         if not left:
             return False
         right=self.isItValid(node.right,node.val,upper)
-    
-        return left and right
 
+        return left and right
 
     def isValidBST(self, root):
         """
@@ -25,6 +24,3 @@ class Solution(object):
         :rtype: bool
         """
         return self.isItValid(root,float('-inf'),float('inf'))
-       
-
-        
