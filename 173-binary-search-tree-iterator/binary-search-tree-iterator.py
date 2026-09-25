@@ -14,18 +14,15 @@ class BSTIterator(object):
         self.idx=-1
         self.inorderTraversal(root)
     
-
-    def inorderTraversal(self,node):
-     
-        if not node:
+    def inorderTraversal(self,root):
+        if not root:
             return
         # left
-        self.inorderTraversal(node.left)
-        # process
-        self.l.append(node.val)
+        self.inorderTraversal(root.left)
+        # proces
+        self.l.append(root.val)
         # right
-        self.inorderTraversal(node.right)
-        
+        self.inorderTraversal(root.right)
 
     def next(self):
         """
