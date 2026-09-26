@@ -17,11 +17,11 @@ class Solution(object):
         qVal=q.val
         curr=root
 
-        while curr:
-            if pVal>curr.val and qVal>curr.val:
-                curr=curr.right
-            elif pVal<curr.val and qVal<curr.val:
-                curr=curr.left
-            else:
-                return curr
+       
+        if pVal>curr.val and qVal>curr.val:
+            return self.lowestCommonAncestor(root.right, p, q)
+        elif pVal<curr.val and qVal<curr.val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        else:
+            return curr
         
