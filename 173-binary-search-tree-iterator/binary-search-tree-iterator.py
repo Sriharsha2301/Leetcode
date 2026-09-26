@@ -10,33 +10,32 @@ class BSTIterator(object):
         """
         :type root: Optional[TreeNode]
         """
-        self.l=[]
-        self.idx=-1
-
-        self.inorderTraversal(root)
+        self.stack=[]
+        self.leftTraversal(root)
     
-    def inorderTraversal(self,root):
-        if not root:
-            return 
-        # left
-        self.inorderTraversal(root.left)
-        # process
-        self.l.append(root.val)
-        self.inorderTraversal(root.right)
+    def leftTraversal(self,root):
+        curr=root
+        while curr:
+            self.stack.append(curr)
+            curr=curr.left
 
     def next(self):
         """
         :rtype: int
         """
-        self.idx=self.idx+1
-        return self.l[self.idx]
+        node=self.stack.pop()
+        if node.right:
+            self.leftTraversal(node.right)
+        return node.val
         
 
     def hasNext(self):
         """
         :rtype: bool
         """
-        return self.idx<len(self.l)-1
+        if not self.stack:
+            return False
+        return True
         
 
 
