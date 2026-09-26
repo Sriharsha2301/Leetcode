@@ -12,16 +12,16 @@ class BSTIterator(object):
         """
         self.l=[]
         self.idx=-1
+
         self.inorderTraversal(root)
     
     def inorderTraversal(self,root):
         if not root:
-            return
+            return 
         # left
         self.inorderTraversal(root.left)
-        # proces
+        # process
         self.l.append(root.val)
-        # right
         self.inorderTraversal(root.right)
 
     def next(self):
