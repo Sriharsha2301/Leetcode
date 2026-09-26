@@ -12,12 +12,13 @@ class BSTIterator(object):
         """
         self.stack=[]
         self.leftTraversal(root)
-    
+
     def leftTraversal(self,root):
         curr=root
         while curr:
             self.stack.append(curr)
             curr=curr.left
+        
 
     def next(self):
         """
@@ -33,7 +34,7 @@ class BSTIterator(object):
         """
         :rtype: bool
         """
-        if not self.stack:
+        if  not self.stack:
             return False
         return True
         
