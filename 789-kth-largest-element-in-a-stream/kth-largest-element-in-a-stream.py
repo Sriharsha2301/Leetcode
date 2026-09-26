@@ -9,8 +9,6 @@ class KthLargest(object):
         heapq.heapify(self.minHeap)
         while len(self.minHeap)>k:
             heapq.heappop(self.minHeap)
-
-
         
 
     def add(self, val):
