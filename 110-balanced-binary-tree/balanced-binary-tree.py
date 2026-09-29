@@ -6,24 +6,21 @@
 #         self.right = right
 class Solution(object):
     def isItBalanced(self,node):
-        if node is None:
+        if not node:
             return (-1,True)
-        left_height,left_Balanced=self.isItBalanced(node.left)
 
-        if not left_Balanced:
+        left_height,left_balanced=self.isItBalanced(node.left)
+        if not left_balanced:
             return (-1,False)
+        
+        right_height,right_balanced=self.isItBalanced(node.right)
 
-        right_height,right_Balanced=self.isItBalanced(node.right)
-
-        if not right_Balanced:
+        if not right_balanced:
             return (-1,False)
-
+        
         if abs(left_height-right_height)>1:
             return (-1,False)
-
         return (1+max(left_height,right_height),True)
-
-
 
 
     def isBalanced(self, root):
