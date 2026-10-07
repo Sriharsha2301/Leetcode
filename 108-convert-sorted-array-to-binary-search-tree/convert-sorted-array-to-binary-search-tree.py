@@ -13,6 +13,7 @@ class Solution(object):
         curr.left=self.intoBST(nums,start,mid-1)
         curr.right=self.intoBST(nums,mid+1,end)
         return curr
+
     def sortedArrayToBST(self, nums):
         """
         :type nums: List[int]
