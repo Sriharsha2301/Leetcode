@@ -13,7 +13,7 @@ class Solution(object):
             pos1=SortedList.bisect_left(SList,nums[i]-valueDiff)
             pos2=SortedList.bisect_right(SList,nums[i]+valueDiff)
 
-            if pos1!=pos2 and pos1!=len(SList): return True
+            if pos1!=pos2 : return True
 
             SList.add(nums[i])
         return False
