@@ -20,3 +20,5 @@ class Solution(object):
             curr=temp
 
         return prev
+
+        
