@@ -4,7 +4,20 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
-    # def swapIt(self,curr,prev):
+    def swapIt(self,curr,prev):
+        if curr is None or curr.next is None:
+            return curr
+
+        first=curr
+        second=curr.next
+
+        first.next=second.next
+        second.next=first
+        prev.next=second
+
+        self.swapIt(first.next,first) 
+
+
 
     def swapPairs(self, head):
         """
@@ -16,18 +29,7 @@ class Solution(object):
         prev=dummy
 
 
-        while prev.next and prev.next.next:
-            first=head
-            second=head.next
-
-            first.next=second.next
-            second.next=first
-            prev.next=second
-
-
-
-            prev=first
-            head=prev.next
+        self.swapIt(head,prev)
 
         return dummy.next
 
