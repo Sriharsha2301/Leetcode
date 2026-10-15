@@ -4,29 +4,29 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
-    def swapIt(self,curr,prev):
-        if curr is None or curr.next is None:
-            return 
-
-        first=curr
-        second=curr.next
-
-        first.next=second.next
-        second.next=first
-        prev.next=second
-        
-            
-        self.swapIt(first.next,first)
-
     def swapPairs(self, head):
         """
         :type head: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
         dummy=ListNode(-1)
-        prev=dummy
         dummy.next=head
-        
-        self.swapIt(head,prev)
+        prev=dummy
+
+
+        while prev.next and prev.next.next:
+            first=head
+            second=head.next
+
+            first.next=second.next
+            second.next=first
+            prev.next=second
+
+
+
+            prev=first
+            head=first.next
 
         return dummy.next
+
+        
