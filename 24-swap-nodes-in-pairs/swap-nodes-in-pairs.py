@@ -4,6 +4,8 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
+    # def swapIt(self,curr,prev):
+
     def swapPairs(self, head):
         """
         :type head: Optional[ListNode]
@@ -25,7 +27,7 @@ class Solution(object):
 
 
             prev=first
-            head=first.next
+            head=prev.next
 
         return dummy.next
 
