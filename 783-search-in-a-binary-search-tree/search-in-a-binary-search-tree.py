@@ -5,15 +5,16 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def searching(self,node,val):
-        if not node:
-            return 
-        if val==node.val:
+    def searchIt(self,node,val):
+        if node is None:
+            return None
+        
+        if node.val==val:
             return node
-        elif val<node.val:
-            return self.searching(node.left,val)
+        elif node.val<val:
+            return self.searchIt(node.right,val)
         else:
-            return self.searching(node.right,val)
+            return self.searchIt(node.left,val)
         
     def searchBST(self, root, val):
         """
@@ -21,10 +22,7 @@ class Solution(object):
         :type val: int
         :rtype: Optional[TreeNode]
         """
-        if not root:
-            return
-
-        return self.searching(root,val)
+        return self.searchIt(root,val)
 
 
         
