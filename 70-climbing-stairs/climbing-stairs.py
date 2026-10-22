@@ -12,11 +12,11 @@ class Solution(object):
         momo[n]=self.climbIt(n-1,momo)+self.climbIt(n-2,momo)
         return momo[n]
 
-    def climbStairs(self, n,momo={}):
+    def climbStairs(self, n):
         """
         :type n: int
         :rtype: int
         """
-        
+        momo={}
         return self.climbIt(n,momo)
         
