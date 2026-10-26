@@ -5,10 +5,10 @@ class Solution(object):
         # if n==1:
         #     return x
             
-        # result=self.pow(x,n/2)
-        if n%2:
-            return x*self.pow(x*x,n/2)
-        return self.pow(x*x,n/2)
+        result=self.pow(x*x,n/2)
+        if n%2!=0:
+            return x*result
+        return result
         
       
 
