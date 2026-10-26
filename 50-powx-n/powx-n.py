@@ -6,6 +6,7 @@ class Solution(object):
         if n%2:
             return x*result
         return result
+
     def myPow(self, x, n):
         """
         :type x: float
@@ -15,4 +16,3 @@ class Solution(object):
         if n<0:
             return 1.0/self.pow(x,-n)
         return self.pow(x,n)
-        
