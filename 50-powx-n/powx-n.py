@@ -7,7 +7,7 @@ class Solution(object):
             
         # result=self.pow(x,n/2)
         if n%2:
-            return x*self.pow(x,n-1)
+            return x*self.pow(x*x,n/2)
         return self.pow(x*x,n/2)
         
       
