@@ -4,6 +4,22 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
+    def mergeIt(self,list1,list2,curr):
+        if list1 is None:
+            curr.next=list2
+            return list2
+           
+        if list2 is None:
+            curr.next=list1
+            return list1
+           
+        
+        if list1.val<=list2.val:
+            curr.next=list1
+            return self.mergeIt(list1.next,list2,curr.next)
+        else:
+            curr.next=list2
+            return self.mergeIt(list1,list2.next,curr.next)
     def mergeTwoLists(self, list1, list2):
         """
         :type list1: Optional[ListNode]
@@ -13,23 +29,8 @@ class Solution(object):
         dummy=ListNode(0)
         curr=dummy
 
-        while list1 and list2:
-            if list1.val<=list2.val:
-                curr.next=list1
-                list1=list1.next
-                curr=curr.next
-            else:
-                curr.next=list2
-                list2=list2.next
-                curr=curr.next
-            
-        if list1 is None:
-            curr.next=list2
-                # list2=list2.next
+        self.mergeIt(list1,list2,curr)
                 
-        if list2 is None:
-            curr.next=list1
-                # list1=list1.next
         return dummy.next
 
         
