@@ -5,8 +5,9 @@ class Solution(object):
         :type n: int
         :rtype: List[str]
         """
-        grid=[]
         row=0
+        col=0
+        l=[]
         while row<m:
             str=""
             col=0
@@ -17,5 +18,6 @@ class Solution(object):
                     str+="#"
                 col+=1
             row+=1
-            grid.append(str)
-        return grid
+            l.append(str)
+        return l
+        
