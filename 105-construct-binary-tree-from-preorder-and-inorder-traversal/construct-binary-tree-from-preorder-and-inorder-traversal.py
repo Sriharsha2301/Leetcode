@@ -14,14 +14,18 @@ class Solution(object):
         if not preorder:
             return None
 
-        binary=TreeNode(preorder[0])
         i=inorder.index(preorder[0])
+
+        binary=TreeNode(preorder[0])
 
         left_preorder=preorder[1:i+1]
         right_preorder=preorder[i+1:]
+
         left_inorder=inorder[:i]
         right_inorder=inorder[i+1:]
 
+
         binary.left=self.buildTree(left_preorder,left_inorder)
         binary.right=self.buildTree(right_preorder,right_inorder)
+
         return binary
