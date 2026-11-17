@@ -14,19 +14,13 @@ class Solution(object):
         if not preorder:
             return None
 
-        bi=TreeNode(preorder[0])
 
         i=inorder.index(preorder[0])
 
 
-        left_pre=preorder[1:i+1]
-        right_pre=preorder[i+1:]
-
-        left_in=inorder[:i]
-        right_in=inorder[i+1:]
-
-        bi.left=self.buildTree(left_pre,left_in)
-        bi.right=self.buildTree(right_pre,right_in)
+        bi=TreeNode(preorder[0])
+        bi.left=self.buildTree(preorder[1:i+1],inorder[:i])
+        bi.right=self.buildTree(preorder[i+1:],inorder[i+1:])
         return bi
     
         
