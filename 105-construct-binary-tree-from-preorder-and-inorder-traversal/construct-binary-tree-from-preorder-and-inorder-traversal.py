@@ -16,16 +16,16 @@ class Solution(object):
 
         i=inorder.index(preorder[0])
 
-        binary=TreeNode(preorder[0])
 
-        left_preorder=preorder[1:i+1]
-        right_preorder=preorder[i+1:]
-
-        left_inorder=inorder[:i]
-        right_inorder=inorder[i+1:]
+        bi=TreeNode(preorder[0])
 
 
-        binary.left=self.buildTree(left_preorder,left_inorder)
-        binary.right=self.buildTree(right_preorder,right_inorder)
+        left_pre=preorder[1:i+1]
+        right_pre=preorder[i+1:]
+        left_in=inorder[:i]
+        right_in=inorder[i+1:]
 
-        return binary
+
+        bi.left=self.buildTree(left_pre,left_in)
+        bi.right=self.buildTree(right_pre,right_in)
+        return bi
